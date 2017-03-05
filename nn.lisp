@@ -66,17 +66,15 @@
 
     (dotimes (i (network-num-input n))
       (dotimes (h (network-num-hidden n))
-        (setf (aref (network-hidden n) h)
-              (+ (aref (network-hidden n) h)
-                 (* (aref (network-inputs n) i)
-                    (aref (network-w1 n) i h))))))
+        (incf (aref (network-hidden n) h)
+              (* (aref (network-inputs n) i)
+                 (aref (network-w1 n) i h)))))
 
     (dotimes (h (network-num-hidden n))
       (dotimes (o (network-num-output n))
-        (setf (aref (network-outputs n) o)
-              (+ (aref (network-outputs n) o)
-                 (* (sigmoid (aref (network-hidden n) h))
-                    (aref (network-w2 n) h o))))))
+        (incf (aref (network-outputs n) o)
+              (* (sigmoid (aref (network-hidden n) h))
+                 (aref (network-w2 n) h o)))))
 
     (dotimes (o (network-num-output n))
       (setf (aref (network-outputs n) o)
