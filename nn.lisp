@@ -115,6 +115,7 @@
                 (make-array (network-num-hidden n) :initial-element 0))
           (setf (network-output-errors n)
                 (make-array (network-num-output n) :initial-element 0))
+
           (dotimes (i (network-num-input n))
             (setf (aref (network-inputs n) i)
                   (aref (aref (network-input-training-examples n) ncase) i)))
@@ -132,10 +133,10 @@
             (progn
               (setf (aref (network-hidden-errors n) h) 0.0)
               (dotimes (o (network-num-output n))
-                (setf (aref (network-hidden-errors n) h)
-                      (+ (aref (network-hidden-errors n) h)
-                         (* (aref (network-output-errors n) o)
-                            (aref (network-w2 n) h o)))))))
+                (incf (aref (network-hidden-errors n) h)
+                      (* (aref (network-output-errors n) o)
+                         (aref (network-w2 n) h o))))))
+          
 
           (dotimes (h (network-num-hidden n))
             (setf (aref (network-hidden-errors n) h)
@@ -193,4 +194,6 @@
     (print (recall network #(0.93 0.2 0.11)))
     (print (recall network #(0.11 0.9 0.06)))
     network))
+
+
 
