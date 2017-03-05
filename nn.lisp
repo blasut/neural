@@ -24,13 +24,13 @@
                   :num-input numInput
                   :num-hidden numHidden
                   :num-output numOutput
-                  :inputs (make-array 3 :initial-element 0)
-                  :hidden (make-array 3 :initial-element 0)
-                  :outputs (make-array 3 :initial-element 0)
-                  :w1 (make-array '(3 3))
-                  :w2 (make-array '(3 3))
-                  :output-errors (make-array '(3 3))
-                  :hidden-errors (make-array '(3 3))
+                  :inputs (make-array numInput :initial-element 0)
+                  :hidden (make-array numHidden :initial-element 0)
+                  :outputs (make-array numOutput :initial-element 0)
+                  :w1 (make-array (list numInput numHidden))
+                  :w2 (make-array (list numInput numHidden))
+                  :output-errors (make-array (list numInput numHidden))
+                  :hidden-errors (make-array (list numInput numHidden))
                   :input-training-examples (make-array 1 :adjustable t :fill-pointer 0)
                   :output-training-examples (make-array 1 :adjustable t :fill-pointer 0))))
 
