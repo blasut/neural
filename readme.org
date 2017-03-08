@@ -1,0 +1,3 @@
+* neural
+
+copying the neural net from this book: https://leanpub.com/aijavascript
