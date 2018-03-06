@@ -1,3 +1,6 @@
 * neural
 
 copying the neural net from this book: https://leanpub.com/aijavascript
+
+
+nts, use this: https://github.com/blasut/simple-neural-network/blob/master/main.py
